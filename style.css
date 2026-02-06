@@ -1,0 +1,325 @@
+@layer global, components, utilities;
+
+@layer global {
+	
+	/* rubik-300 - latin */
+	@font-face {
+		font-display: swap;
+		/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 300;
+		src: url('fonts/rubik-v31-latin-300.woff2') format('woff2');
+		/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+	}
+	
+	/* rubik-regular - latin */
+	@font-face {
+		font-display: swap;
+		/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 400;
+		src: url('fonts/rubik-v31-latin-regular.woff2') format('woff2');
+		/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+	}
+	
+	/* rubik-500 - latin */
+	@font-face {
+		font-display: swap;
+		/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 500;
+		src: url('fonts/rubik-v31-latin-500.woff2') format('woff2');
+		/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+	}
+	
+	:root {
+		/* || FONT SIZES */
+		
+		--FS-12: calc(12 / 16 * 1rem);
+		--FS-14: calc(14 / 16 * 1rem);
+		--FS-16: calc(16 / 16 * 1rem);
+		--FS-17: calc(17 / 16 * 1rem);
+		--FS-18: calc(18 / 16 * 1rem);
+		--FS-24: calc(24 / 16 * 1rem);
+		--FS-28: calc(28 / 16 * 1rem);
+		--FS-38: calc(38 / 16 * 1rem);
+		--FS-42: calc(42 / 16 * 1rem);
+		--FS-48: calc(42 / 16 * 1rem);
+		--FS-52: calc(52 / 16 * 1rem);
+		--FS-60: calc(60 / 16 * 1rem);
+		
+		--FS-PARAGRAPH: var(--FS-16);
+		--FS-CARD-TITLES: var(--FS-18);
+		--FS-NAME-HEADER: var(--FS-42);
+		--FS-TIME: var(--FS-18);
+		
+		@media (width >= calc(600 / 16 * 1rem)) {
+			--FS-TITLE: var(--FS-52);
+			--FS-PARAGRAPH: var(--FS-16);
+		}
+		
+		/* || COLORS */
+		
+		/* || PRIMARY */
+		--C-PURPLE-600: hsl(246, 80%, 60%);
+		
+		--C-ORANGE-300: hsl(15, 100%, 70%);
+		--C-BLUE-300: hsl(195, 74%, 62%);
+		--C-PINK-400: hsl(348, 100%, 68%);
+		--C-GREEN-400: hsl(145, 58%, 55%);
+		--C-PURPLE-700: hsl(264, 64%, 52%);
+		--C-YELLOW-300: hsl(43, 84%, 65%);
+		
+		/* || NEUTRAL */
+		--C-NAVY-950: hsl(226, 43%, 10%);
+		--C-NAVY-900: hsl(235, 46%, 20%);
+		--C-PURPLE-500: hsl(235, 45%, 61%);
+		--C-NAVY-200: hsl(236, 100%, 87%);
+		--C-WHITE: white;
+		
+		/* || SPECIFIED */
+		--C-BODY-BG: var(--C-NAVY-950);
+		--C-MAIN-BG: var(--C-NAVY-950);
+		--C-PROFILE-HEAD-BG: var(--C-PURPLE-600);
+		--C-DASHBOARD-BG: var(--C-NAVY-900);
+		--C-CONTENT-TEXT: var(--C-NAVY-200);
+		--C-MAIN-TITLE: var(--C-BLUE-800);
+		--C-WORK: var(--C-ORANGE-300);
+		--C-PLAY: var(--C-BLUE-300);
+		--C-STUDY: var(--C-PINK-400);
+		--C-EXERCISE: var(--C-GREEN-400);
+		--C-SOCIAL: var(--C-PURPLE-700);
+		--C-SELF-CARE: var(--C-YELLOW-300);
+	}
+	
+	/* || RESET */
+	*,
+	*::after,
+	*::before {
+		box-sizing: border-box;
+	}
+	
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	img {
+		display: block;
+		height: auto;
+		max-width: 100%;
+	}
+	
+	/* || MAIN GLOBAL STYLES */
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100vw;
+		min-height: 100vh;
+		font-family: "Rubik", Arial, Helvetica, sans-serif;
+		font-weight: 400;
+		background-color: var(--C-BODY-BG);
+		position: relative;
+		color: var(--C-CONTENT-TEXT);
+		scroll-behavior: smooth;
+	}
+	
+	h1 {
+		line-height: 1.1;
+		font-size: var(--FS-TITLE);
+		font-weight: 700;
+	}
+	
+	p {
+		font-size: var(--FS-PARAGRAPH);
+		font-weight: 500;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+}
+
+@layer component {
+	.main {
+		margin-block: calc(100 / 16 * 1rem);
+		max-width: calc(100% - calc(60 / 16 * 1rem));
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		justify-content: center;
+		gap: calc(25 / 16 * 1rem);
+		background: var(--C-MAIN-BG);
+		
+		.head-section {
+			background: var(--C-DASHBOARD-BG);
+			width: calc(340 / 16 * 1rem);
+			border-radius: calc(20 / 16 * 1rem);
+			height: calc(200 / 16 * 1rem);
+			
+		}
+		.profile-head {
+			background: var(--C-PROFILE-HEAD-BG);
+			border-radius: calc(20 / 16 * 1rem);
+			display: flex;
+			max-height: 130px;
+			padding: calc(35 / 16 * 1rem);
+			gap: calc(20 / 16 * 1rem);
+			flex-flow: row;
+			align-items: center;
+		}
+		.profile-pic {
+			width: calc(65 / 16 * 1rem);
+			border: 3px solid var(--C-WHITE);
+			border-radius: 50%;
+		}
+		.name-text {
+			font-weight: 300;
+			font-size: var(--FS-18);
+		}
+		.name {
+			font-weight: 300;
+			color: var(--C-WHITE);
+			font-size: var(--FS-28);
+			display: block;
+		}
+		.timeframe-switch {
+			height: 70px;
+			display: flex;
+			flex-flow: row;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+		a {
+			font-size: var(--FS-18);
+			font-weight: 400;
+			opacity: 0.7;
+		}
+		
+		a:any-link {
+			color: var(--C-CONTENT-TEXT);
+		}
+		
+		a.active {
+			color: var(--C-WHITE);
+			opacity: 1;
+		}
+		
+		.dashboards {
+			background: var(--C-DASHBOARD-BG);
+			width: calc(340 / 16 * 1rem);
+			border-radius: calc(20 / 16 * 1rem);
+			max-height: calc(200 / 16 * 1rem);
+			position: relative;
+			display: flex;
+			flex-flow: column;
+		}
+		.activity-icon {
+			max-height: calc(40 / 16 * 1rem);
+			border-radius: calc(20 / 16 * 1rem);
+			display: flex;
+			padding: 0 calc(20 / 16 * 1rem) 0 0;
+			justify-content: right;
+			flex-flow: row-reverse;
+		}
+		
+		.work {
+			background: var(--C-WORK);
+			max-height: calc(200 / 16 * 1rem);
+		}
+		.play {
+			background: var(--C-PLAY);
+			max-height: calc(200 / 16 * 1rem);
+		}
+		.study {
+			background: var(--C-STUDY);
+			max-height: calc(200 / 16 * 1rem);
+		}
+		.exercise {
+			background: var(--C-EXERCISE);
+			max-height: calc(200 / 16 * 1rem);
+		}
+		.social {
+			background: var(--C-SOCIAL);
+			max-height: calc(200 / 16 * 1rem);
+		}
+		.self-care {
+			background: var(--C-SELF-CARE);
+			max-height: calc(200 / 16 * 1rem);
+		}
+		
+		
+		
+		
+		.icons {
+			width: calc(72 / 16 * 1rem);
+			object-fit: cover;
+			object-position: center;
+		}
+		.activity {
+			background: var(--C-DASHBOARD-BG);
+			height: calc(155 / 16 * 1rem);
+			border-radius: calc(20 / 16 * 1rem);
+			z-index: 2;
+		}
+		.activity-title {
+			
+		}
+		.more-icon {
+			
+		}
+		.times {
+			
+		}
+		.current {
+			
+		}
+		.previous {
+			
+		}
+	}
+}
+
+@layer utilities {
+	.offscreen {
+		position: absolute;
+		left: -10000px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		
+		&.skip:focus {
+			left: 0;
+			width: auto;
+			height: auto;
+			background: #fff;
+			padding: 10px;
+			border: 1px solid;
+		}
+	}
+	
+	.attribution {
+		font-size: 11px;
+		text-align: center;
+	}
+	
+	.footer {
+		position: fixed;
+		bottom: 0;
+		color: #fff;
+		
+		.attribution {
+			font-size: 11px;
+			text-align: center;
+		}
+		
+		.attribution a {
+			color: hsla(228, 88%, 53%, 1)
+		}
+	}
+}
