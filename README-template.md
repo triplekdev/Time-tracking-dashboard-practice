@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [See Solution;](https://github.com/triplekdev/Time-tracking-dashboard-practice)
+- Live Site URL: [See site;](https://time-tracking-dashboard-practice.netlify.app/)
 
 ## My process
 
