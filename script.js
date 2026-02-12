@@ -5,7 +5,10 @@ const main = document.querySelector('.main')
 const periodsContainer = document.querySelector('.timeframe-switch')
 
 fetch('data.json').then((response) => {
-	if (!response.ok) return;
+	if (!response.ok) {
+	alert("Data couldn't load please refresh") 
+	return;
+	}
 	return response.json();
 }).then((data) => {
 	populateDOM(data);
